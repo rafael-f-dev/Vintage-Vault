@@ -5,22 +5,12 @@ const Navbar = () => {
 
     return (
         <div className='navbar'>
-            <NavLink to={"/"} style={styles.default} activeStyle={styles.active} >Home</NavLink>
-            <NavLink to={"/login"} style={styles.default} activeStyle={styles.active} >Login</NavLink>
-            <NavLink to={"/register"} style={styles.default} activeStyle={styles.active} >Register</NavLink>
-            <NavLink to={"/profile"} style={styles.default} activeStyle={styles.active} >Profile</NavLink>
+            <NavLink to={"/"} className={({ isActive }) => (isActive ? 'active' : 'default')} >Home</NavLink>
+            <NavLink to={"/login"} className={({ isActive }) => (isActive ? 'active' : 'default')} >Login</NavLink>
+            <NavLink to={"/register"} className={({ isActive }) => (isActive ? 'active' : 'default')} >Register</NavLink>
+            <NavLink to={"/profile"} className={({ isActive }) => (isActive ? 'active' : 'default')} >Profile</NavLink>
         </div>
     )
-}
-
-const styles = {
-    active: {
-       color: 'orange'
-    },
-    default: {
-       color: 'white',
-       textDecoration: 'none'
-    }
 }
 
 export default Navbar;
