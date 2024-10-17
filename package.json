@@ -1,0 +1,20 @@
+{
+  "name": "Vintage Vault",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rafael-f-dev",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "nodemailer": "*",
+    "dotenv": "*"
+  }
+}
