@@ -8,8 +8,7 @@ app.use(require("express").json())
 async function connectingToDB  () {
   try {
     await require("mongoose").connect(process.env.MONGO, {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
+    
     });
     console.log("Connected to the DB ✅");
   } catch (error) {
