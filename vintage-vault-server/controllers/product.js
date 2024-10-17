@@ -17,10 +17,10 @@ class Product {
         let { productname, productprice, productdesc, productcat } = req.body;
         try{
             await Products.create({name:productname,price:productprice,description:productdesc,category:productcat});
-            res.send({ok:true, data: `${productname} added successfully.`})
+            res.send({ok:true, data: `${productname} added successfully.`});
         }
         catch(e){
-            res.send({e})
+            res.send({e});
         }
     }
 
@@ -28,10 +28,10 @@ class Product {
         let { product } = req.body;
         try{
             await Products.deleteOne({name:product});
-            res.send({ok:true, data: `${product} removed successfully.`})
+            res.send({ok:true, data: `${product} removed successfully.`});
         }
         catch(e){
-            res.send({e})
+            res.send({e});
         }
     }
 
