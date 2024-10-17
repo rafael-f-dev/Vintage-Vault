@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar.js';
 import Home from './views/Home.js';
 import Login from './views/Login.js';
@@ -8,15 +8,26 @@ import Profile from './views/Profile.js';
 import './App.css';
 
 function App() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const login = () => {
+    setIsLoggedIn(true);
+  }
+
+  const logout = () => {
+    setIsLoggedIn(false);
+  }
+
   return (
     <div className="App">
       <Router>
-      <Navbar/>
+        <Navbar />
         <Routes>
-          <Route path ="/" component={Home}/>
-          <Route path ="/login" component={Login}/>
-          <Route path ="/register" component={Register}/>
-          <Route path ="/profile" component={Profile}/>
+          <Route path ="/" render={Home}/>
+          <Route path ="/login" render={(props) => isLoggedIn ? <Navigate to="/"/> : <Login login={login} />}/>
+          <Route path ="/register" render={(props) => isLoggedIn ? <Navigate to="/"/> : <Register login={login} />}/>
+          <Route path ="/profile" render={(props) => isLoggedIn ? <Profile logout={logout} /> : <Navigate to="/"/>}/>
         </Routes>
       </Router>
       

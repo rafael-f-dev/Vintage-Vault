@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default function Navbar() {
+const Navbar = () => {
+
     return (
         <div className='navbar'>
             <NavLink to="/" style={styles.default} activeStyle={styles.active} >Home</NavLink>
@@ -14,10 +15,12 @@ export default function Navbar() {
 
 const styles = {
     active: {
-       color: 'grey'
+       color: 'orange'
     },
     default: {
        color: 'white',
        textDecoration: 'none'
     }
 }
+
+export default Navbar;
