@@ -5,7 +5,7 @@ const express = require('express'),
 
 router.get('/', controller.findAll);
 
-router.post('/new', controller.insert);
+router.post('/add', controller.insert);
 
 router.post('/delete', controller.delete);
 

@@ -16,7 +16,7 @@ class Product {
    async insert (req, res) {
         let { productname, productprice, productdesc, productcat } = req.body;
         try{
-            const done = await Products.create({name:productname,price:productprice,description:productdesc,category:productcat});
+            await Products.create({name:productname,price:productprice,description:productdesc,category:productcat});
             res.send({ok:true, data: `${productname} added successfully.`})
         }
         catch(e){
@@ -27,12 +27,25 @@ class Product {
     async delete (req, res) {
         let { product } = req.body;
         try{
-            const removed = await Products.deleteOne({name:product});
+            await Products.deleteOne({name:product});
             res.send({ok:true, data: `${product} removed successfully.`})
         }
         catch(e){
             res.send({e})
         }
+    }
+
+    async update (req, res){
+        let { oldproduct, newproduct } = req.body;
+        try{
+            await Products.updateOne(
+                { oldproduct },{ name:newproduct }
+             );
+            res.send({ok:true, data:`Product ${oldproduct} updated to ${newproduct} successfully`});
+        }
+        catch(e){
+            res.send({e});
+        };
     }
 }
 	
