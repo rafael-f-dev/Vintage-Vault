@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { URL } from '../config.js';
 
 const Register = (props) => {
+
+    const [message, setMessage] = useState("");
     const [form, setForm] = useState({
         email:"",
         password:"",
@@ -11,14 +15,30 @@ const Register = (props) => {
         setForm({...form, [e.target.name]: e.target.value})
     } 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-           props.login();
+           const res = await axios.post(`${URL}/users/register`, {
+              email: form.email,
+              password: form.password,
+              password2: form.password2
+           })
+           setMessage(res.data.data);
+           if (res.data.ok) {
+            setTimeout(() => {
+               props.login();
+            },1500)
+           }
         } catch (err){
            console.log(err)
         }
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+           setMessage("")
+        }, 1500)
+    },[message])
 
     return (<form onChange={handleChange} onSubmit={handleSubmit} className='form-container'>
               <label>Email</label>
@@ -30,6 +50,8 @@ const Register = (props) => {
               <label>Confirm Password</label>
               <input type='password' name='password2' placeholder='Confirm password'/>
               <button>Register</button>
+
+              <h4 className='message'>{message}</h4>
            </form>
     )
 }

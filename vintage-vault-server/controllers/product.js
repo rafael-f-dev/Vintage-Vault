@@ -8,8 +8,8 @@ class Product {
            const products = await Products.find({});
            res.send(products);
        }
-       catch(e){
-           res.send({e})
+       catch(err){
+           res.send({err})
        }
     }
 
@@ -19,8 +19,8 @@ class Product {
             await Products.create({name:productname,price:productprice,description:productdesc,category:productcat});
             res.send({ok:true, data: `${productname} added successfully.`});
         }
-        catch(e){
-            res.send({e});
+        catch(err){
+            res.send({err});
         }
     }
 
@@ -30,8 +30,8 @@ class Product {
             await Products.deleteOne({name:product});
             res.send({ok:true, data: `${product} removed successfully.`});
         }
-        catch(e){
-            res.send({e});
+        catch(err){
+            res.send({err});
         }
     }
 
@@ -43,8 +43,8 @@ class Product {
              );
             res.send({ok:true, data:`Product ${oldproduct} updated to ${newproduct} successfully`});
         }
-        catch(e){
-            res.send({e});
+        catch(err){
+            res.send({err});
         };
     }
 }

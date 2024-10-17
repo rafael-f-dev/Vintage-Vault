@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar.js';
 import Home from './views/Home.js';
 import Login from './views/Login.js';
 import Register from './views/Register.js';
 import Profile from './views/Profile.js';
+import axios from 'axios';
+import { URL } from './config.js';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
@@ -11,11 +13,29 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const login = () => {
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  useEffect(() => {
+    const verify_token = async () => {
+      if (token === null) setIsLoggedIn(false);
+      try {
+         axios.defaults.headers.common["Authorization"] = token;
+         const res = await axios.post(`${URL}/users/verify_token`)
+         return res.data.ok ? login(token) : logout()
+      } catch(err) {
+        console.log(err)
+      }
+    };
+    verify_token();
+  }, []);
+
+  const login = (token) => {
+    token && localStorage.setItem("token", JSON.stringify(token));
     setIsLoggedIn(true);
   }
 
   const logout = () => {
+    localStorage.removeItem("token");
     setIsLoggedIn(false);
   }
 

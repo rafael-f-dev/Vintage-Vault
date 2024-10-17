@@ -25,11 +25,40 @@ class User {
          await Users.create(newUser);
          res.send({ok:true, data:"Registered successfully"});
       }
-      catch (e) {
-        res.send({e});
+      catch (err) {
+        res.send({ok:false, data:"Something went wrong", err});
       }
    }
 
+   async login(req,res) {
+         const { email, password } = req.body;
+         if (!email || !password) 
+            return res.send({ok:false, data:"All fields required"});
+         if (!validator.isEmail(email)) 
+            return res.send({ok:false, data:"Email invalid"});
+      try {
+         const user = await Users.findOne({ email });
+         if (!user) return res.send({ok:false, data:"Invalid credentials"});
+         const match = await argon2.verify(user.password, password);
+         if (match) {
+            const token = jwt.sign(user.toJSON(), jwt_secret, { expiresIn: "1h" })
+            res.send({ok:true, data: "Welcome back", token, email });
+         } else return res.send({ ok:false, data:"Invalid credentials"});
+      }
+      catch (err) {
+         res.send({ok:false, data:"Something went wrong"}, err);
+      }
+   }
+
+   async verify_token(req,res) {
+      const token = req.headers.authorization;
+      jwt.verify(token, jwt_secret, (err, succ) => {
+         err ?
+         res.send({ok:false, data:"Something went wrong"})
+         : res.send({ok:true, succ});
+      });
+
+   }
 
 }
 
