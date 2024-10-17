@@ -4,6 +4,7 @@
 
 body {
   background-color: rgb(104, 69, 69);
+  color: white;
 }
 
 .navbar {
@@ -17,7 +18,7 @@ body {
 
 .form-container {
   width: 30%;
-  margin: 10vh;
+  margin: 10vh 35%;
   display: flex;
   flex-direction: column;
   border: 1px;
