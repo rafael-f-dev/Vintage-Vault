@@ -9,6 +9,7 @@
   "author": "rafael-f-dev",
   "license": "ISC",
   "dependencies": {
+    "argon2": "^0.41.1",
     "bcrypt": "*",
     "cors": "^2.8.5",
     "dotenv": "*",
