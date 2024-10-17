@@ -17,7 +17,7 @@ class Product {
         let { productname, productprice, productdesc, productcat } = req.body;
         try{
             const done = await Products.create({name:productname,price:productprice,description:productdesc,category:productcat});
-            res.send(done)
+            res.send({ok:true, data: `${productname} added successfully.`})
         }
         catch(e){
             res.send({e})
@@ -28,7 +28,7 @@ class Product {
         let { product } = req.body;
         try{
             const removed = await Products.deleteOne({name:product});
-            res.send({removed})
+            res.send({ok:true, data: `${product} removed successfully.`})
         }
         catch(e){
             res.send({e})
