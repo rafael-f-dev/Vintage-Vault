@@ -14,7 +14,7 @@
     "dotenv": "*",
     "express": "^4.21.1",
     "jsonwebtoken": "*",
-    "mongoose": "*",
+    "mongoose": "^8.7.1",
     "nodemailer": "*"
   }
 }
