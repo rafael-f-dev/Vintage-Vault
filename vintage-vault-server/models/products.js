@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 		name: { type: String, required: true, unique: true },
 		price: { type: Number, required: true },
 		description: { type: String, required: true },
-		category: { type: String, required: true, unique: false }
+		image: {type: String, required: true },
+		category: { type: String, required: true },
+		quantity: { type: Number, required: true },
 	});
 
 module.exports = mongoose.model('product', productSchema)

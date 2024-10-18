@@ -14,10 +14,10 @@ class Product {
     }
 
    async insert (req, res) {
-        let { productname, productprice, productdesc, productcat } = req.body;
+        let { name, price, description, image, category, quantity } = req.body;
         try{
-            await Products.create({name:productname,price:productprice,description:productdesc,category:productcat});
-            res.send({ok:true, data: `${productname} added successfully.`});
+            await Products.create({name, price, description, image, category, quantity});
+            res.send({ok:true, data: `${name} added successfully.`});
         }
         catch(err){
             res.send({err});
@@ -47,6 +47,18 @@ class Product {
             res.send({err});
         };
     }
+
+    async findCategory (req, res) {
+        let { category } = req.params;
+        try {
+            const product = await Products.find({ category: category })
+            res.send({ok:true, data: product})
+        }
+        catch(error){
+            res.send({ok:false, data: `Category ${category} does not exist`});
+        };
+    }
+
 }
 	
 

@@ -5,6 +5,8 @@ const express = require('express'),
 
 router.get('/', controller.findAll);
 
+router.get('/:category', controller.findCategory)
+
 router.post('/add', controller.insert);
 
 router.post('/delete', controller.delete);
