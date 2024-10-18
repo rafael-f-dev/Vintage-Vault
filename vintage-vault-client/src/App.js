@@ -4,6 +4,7 @@ import Home from './views/Home.js';
 import Login from './views/Login.js';
 import Register from './views/Register.js';
 import Profile from './views/Profile.js';
+import Cart from './views/Cart.js';
 import axios from 'axios';
 import { URL } from './config.js';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
@@ -48,6 +49,7 @@ function App() {
           <Route path ="/login" element={isLoggedIn ? <Navigate to="/"/> : <Login login={login} />}/>
           <Route path ="/register" element={isLoggedIn ? <Navigate to="/"/> : <Register login={login} />}/>
           <Route path ="/profile" element={isLoggedIn ? <Profile logout={logout} /> : <Navigate to="/"/>}/>
+          <Route path="/cart" element={<Cart/>}/>
         </Routes>
       </Router>
     </div>
