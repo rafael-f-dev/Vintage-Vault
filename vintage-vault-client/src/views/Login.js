@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import { URL } from '../config.js';
 
@@ -37,16 +38,18 @@ const Login = (props) => {
         }, 1500)
     },[message])
 
-    return (<form onChange={handleChange} onSubmit={handleSubmit} className='form-container'>
+    return (
+    <div>
+    <form onChange={handleChange} onSubmit={handleSubmit} className='form-container'>
               <label>Email</label>
               <input type='email' name='email' placeholder='Your email'/>
-
               <label>Password</label>
               <input type='password' name='password' placeholder='Your password'/>
               <button>Log in</button>
-
+              <NavLink to={"/register"} className="register" >Create Account</NavLink>
               <h4 className='message'>{message}</h4>
            </form>
+           </div>
     )
 }
 

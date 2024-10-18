@@ -51,6 +51,19 @@ button {
   padding: 0.5em;
 }
 
+.message {
+  color: orange;
+}
+
+.register {
+  font-size: 1em;
+  margin: 1em;
+  text-decoration: none;
+  background-color: rgb(94, 18, 18);
+  color: white;
+  padding: 0.5em;
+}
+
 .profile {
   width: 100%;
   display: flex;
