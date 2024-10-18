@@ -2,7 +2,10 @@ import React from 'react';
 
 const Home = () => {
     return (<div>
-             <h1>I am home</h1>
+             <div className='splash-screen'>
+                <h2>Some message</h2>
+                <NavLink to={"/products"} className="splash-screen-button" >Shop Now</NavLink>
+             </div>
            </div>
     )
 };

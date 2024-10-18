@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar.js';
 import Home from './views/Home.js';
+import Products from './views/Products.js';
 import Login from './views/Login.js';
 import Register from './views/Register.js';
 import Profile from './views/Profile.js';
@@ -46,6 +47,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path ="/" element={<Home/>}/>
+          <Route path ="/products" element={<Products/>}/>
           <Route path ="/login" element={isLoggedIn ? <Navigate to="/"/> : <Login login={login} />}/>
           <Route path ="/register" element={isLoggedIn ? <Navigate to="/"/> : <Register login={login} />}/>
           <Route path ="/profile" element={isLoggedIn ? <Profile logout={logout} /> : <Navigate to="/"/>}/>
