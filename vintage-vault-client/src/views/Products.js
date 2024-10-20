@@ -17,17 +17,23 @@ const Products = () => {
      }
      getProds()
 
+     let handleClick = (idx) => {
+        console.log(idx)
+     }
+
      let renderProds = () => (
-        products.map((prod,idx)=> <li className='prod' key={idx}>
+        products.map((prod,idx)=> <li onClick={handleClick(idx)} className='prod' key={idx}>
+                                        <img className='prod-img' src={prod.image} alt='product'></img>
+                                        <div className='prod-text-wrapper'>
                                         <p className='prod-name' >{prod.name}</p>
                                         <p className='prod-price' >{prod.price}€</p>
-                                        <img className='prod-img' src={prod.image}></img>
                                         <p className='prod-desc' >{prod.description}</p>
-                                  </li>)
+                                        </div>
+                                   </li>)
       )
 
     return (<div>
-               <ul className='prod-list'>
+               <ul className='prod-grid'>
                {renderProds()}
                </ul>
            </div>

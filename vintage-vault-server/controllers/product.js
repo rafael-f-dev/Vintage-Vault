@@ -35,7 +35,7 @@ class Product {
         }
     }
 
-    async update (req, res){
+    async updateName (req, res){
         let { oldproduct, newproduct } = req.body;
         try{
             await Products.updateOne(

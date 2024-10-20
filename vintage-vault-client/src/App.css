@@ -72,3 +72,44 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+.prod-grid {
+    display: grid;
+    border-top: 1px solid rgb(104, 97, 97);
+    border-bottom: 1px solid rgb(104, 97, 97);
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    margin-top: 1em;
+    margin-bottom: 4em;
+    grid-gap: 2em;
+}
+
+.prod {
+  margin: 2em;
+  border: 1px solid rgb(104, 97, 97);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.prod-img {
+  display: block;
+  height: auto;
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 200px;
+  margin: 2em auto 1em;
+}
+
+.prod-text-wrapper {
+  margin: 0.7em;
+  font-size: 1.3em;
+}
+
+.prod-name {
+  font-weight: bold;
+  text-align: center;
+  margin-left: 0.5em;
+}

@@ -11,6 +11,6 @@ router.post('/add', controller.insert);
 
 router.post('/delete', controller.delete);
 
-router.post('/update', controller.update);
+router.post('/update', controller.updateName);
 
 module.exports = router
