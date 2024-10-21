@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { URL } from '../config.js';
 import axios from 'axios';
 
@@ -17,12 +18,11 @@ const Products = () => {
      }
      getProds()
 
-     let handleClick = (idx) => {
-        console.log(idx)
-     }
+     
 
+    
      let renderProds = () => (
-        products.map((prod,idx)=> <li onClick={handleClick(idx)} className='prod' key={idx}>
+        products.map((prod,idx)=> <li className='prod' key={idx}>
                                         <img className='prod-img' src={prod.image} alt='product'></img>
                                         <div className='prod-text-wrapper'>
                                         <p className='prod-name' >{prod.name}</p>
