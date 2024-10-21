@@ -3,7 +3,7 @@ import { URL } from '../config.js';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const SingleProduct = () => {
+const SingleProduct = (props) => {
 
     const [product, setProduct] = useState([])
 
@@ -23,15 +23,28 @@ const SingleProduct = () => {
         getProd();
     }, [id]);
     
+    const addToCart = () => {
+        
+        const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        const productExists = existingCart.some(item => item._id === product._id);
+
+        if (!productExists) {
+            const newCart = [...existingCart, product];
+            props.setCart(newCart);
+            localStorage.setItem('cart', JSON.stringify(newCart));
+        }
+    };
 
         return (
-            <div className='single-product'>
+            <div className='prod'>
                 <img className='prod-img' src={product.image} alt='product' />
                 <div className='prod-text-wrapper'>
                     <h1 className='prod-name'>{product.name}</h1>
                     <p className='prod-price'>{product.price}€</p>
                     <p className='prod-desc'>{product.description}</p>
                 </div>
+                <button onClick={addToCart}>Add to cart</button>
             </div>
         );
     };

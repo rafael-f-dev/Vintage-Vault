@@ -16,6 +16,9 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  const [cart, setCart] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
+
   const token = JSON.parse(localStorage.getItem("token"));
 
   useEffect(() => {
@@ -32,6 +35,12 @@ function App() {
     verify_token();
   });
 
+
+  useEffect(() => {
+    setCartCount(cart.length);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
+
   const login = (token) => {
     token && localStorage.setItem("token", JSON.stringify(token));
     setIsLoggedIn(true);
@@ -42,18 +51,20 @@ function App() {
     setIsLoggedIn(false);
   }
 
+  
+
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <Navbar cartCount={cartCount}/>
         <Routes>
           <Route path ="/" element={<Home/>}/>
           <Route path ="/products" element={<Products/>}/>
           <Route path ="/login" element={isLoggedIn ? <Navigate to="/"/> : <Login login={login} />}/>
           <Route path ="/register" element={isLoggedIn ? <Navigate to="/"/> : <Register login={login} />}/>
           <Route path ="/profile" element={isLoggedIn ? <Profile logout={logout} /> : <Navigate to="/"/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/id/:id" element={<SingleProduct/>}/>
+          <Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>}/>
+          <Route path="/id/:id" element={<SingleProduct cart={cart} setCart={setCart}/>}/>
         </Routes>
       </Router>
     </div>
