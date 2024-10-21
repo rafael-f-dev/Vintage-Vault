@@ -49,13 +49,24 @@ class Product {
     }
 
     async findCategory (req, res) {
-        let { category } = req.params;
+        let { category } = req.body;
         try {
             const product = await Products.find({ category: category })
             res.send({ok:true, data: product})
         }
         catch(error){
             res.send({ok:false, data: `Category ${category} does not exist`});
+        };
+    }
+
+    async findID (req, res) {
+        let { id } = req.params;
+        try {
+            const product = await Products.findOne({ _id: id })
+            res.send(product)
+        }
+        catch(error){
+            res.send({ok:false, data: `Product id ${id} does not exist`});
         };
     }
 

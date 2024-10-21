@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { URL } from '../config.js';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
-const SingleProduct = (props) => {
-    return (<ul>
-          <li className='prod' key={props.idx}>
-          <img className='prod-img' src={props.product.image} alt='product'></img>
-          <div className='prod-text-wrapper'>
-          <p className='prod-name' >{props.product.name}</p>
-          <p className='prod-price' >{props.product.price}€</p>
-          <p className='prod-desc' >{props.product.description}</p>
-          </div>
-          </li>
-        </ul>
-    )
-};
+const SingleProduct = () => {
+
+    const [product, setProduct] = useState([])
+
+    const { id } = useParams();
+
+   useEffect(() => {
+        const getProd = () => {
+            axios.get(`${URL}/products/id/${id}`) 
+                .then((res) => {
+                    setProduct(res.data);
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+        };
+
+        getProd();
+    }, [id]);
+    
+
+        return (
+            <div className='single-product'>
+                <img className='prod-img' src={product.image} alt='product' />
+                <div className='prod-text-wrapper'>
+                    <h1 className='prod-name'>{product.name}</h1>
+                    <p className='prod-price'>{product.price}€</p>
+                    <p className='prod-desc'>{product.description}</p>
+                </div>
+            </div>
+        );
+    };
 
 export default SingleProduct;

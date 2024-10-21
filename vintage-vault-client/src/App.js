@@ -53,7 +53,7 @@ function App() {
           <Route path ="/register" element={isLoggedIn ? <Navigate to="/"/> : <Register login={login} />}/>
           <Route path ="/profile" element={isLoggedIn ? <Profile logout={logout} /> : <Navigate to="/"/>}/>
           <Route path="/cart" element={<Cart/>}/>
-          <Route path="/:product" element={<SingleProduct/>}/>
+          <Route path="/id/:id" element={<SingleProduct/>}/>
         </Routes>
       </Router>
     </div>
