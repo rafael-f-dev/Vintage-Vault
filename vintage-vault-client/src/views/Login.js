@@ -45,8 +45,8 @@ const Login = (props) => {
               <input type='email' name='email' placeholder='Your email'/>
               <label>Password</label>
               <input type='password' name='password' placeholder='Your password'/>
-              <button>Log in</button>
-              <NavLink to={"/register"} className="register" >Create Account</NavLink>
+              <button className='form-button'>Log in</button>
+              <NavLink to={"/register"} className='form-button' >Create Account</NavLink>
               <h4 className='message'>{message}</h4>
            </form>
            </div>

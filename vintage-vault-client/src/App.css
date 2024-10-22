@@ -12,6 +12,13 @@ body {
   text-decoration: none;
 }
 
+
+.default:hover {
+  transition: 1s;
+  color: rgb(197, 193, 170);
+  text-decoration: none;
+}
+
 .active {
   color: orange;
   text-decoration: none;
@@ -31,11 +38,30 @@ body {
   margin: 10vh 35%;
   display: flex;
   flex-direction: column;
-  border: 2px solid rgb(255, 255, 255);
-  background-color: rgb(31, 26, 26);
+  border: 2px solid white;
+  background-color: rgb(39, 39, 39);
   padding: 2.5em;
   border-radius: 1em;
 }
+
+.form-button {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(94, 18, 18);
+  font-size: 1em;
+  margin: 1em;
+  border: 3px solid rgb(39, 39, 39);
+  border-radius: 8px;
+  padding: 0.5em;
+}
+
+
+.form-button:hover {
+  transition: 1s;
+  color: black;
+  background: rgb(197, 193, 170);
+ }
+ 
 
 input {
   border: 0;
@@ -43,13 +69,42 @@ input {
   font-size: 1em;
 }
 
+input:hover {
+  transition: 1s;
+  background-color: rgb(197, 193, 170);
+}
+
 button {
-  background-color: rgb(94, 18, 18);
-  color: white;
+  color: black;
+  background-color: rgb(197, 193, 170);
   font-size: 1em;
   margin: 1em;
-  border: 0;
+  border: 3px solid rgb(39, 39, 39);
+  border-radius: 8px;
   padding: 0.5em;
+}
+
+button:hover {
+ transition: 1s;
+ color: white;
+ background: rgb(39, 39, 39);
+}
+
+.splash-screen-button {
+  color: black;
+  background-color: rgb(197, 193, 170);
+  font-size: 2em;
+  margin: 1em;
+  border: 3px solid rgb(39, 39, 39);
+  border-radius: 8px;
+  padding: 0.5em;
+  text-decoration: none;
+}
+
+.splash-screen-button:hover {
+  transition: 1s;
+  color: white;
+  background: rgb(39, 39, 39);
 }
 
 .message {
@@ -75,8 +130,8 @@ button {
 
 .prod-grid {
   display: grid;
-  border-top: 1px solid rgb(104, 97, 97);
-  border-bottom: 1px solid rgb(104, 97, 97);
+  border-top: 1px solid rgb(39, 39, 39);
+  border-bottom: 1px solid rgb(39, 39, 39);
   justify-content: space-between;
   align-items: stretch;
   grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -88,10 +143,15 @@ button {
 
 .prod {
   margin: 2em;
-  border: 1px solid rgb(104, 97, 97);
+  border: 1px solid rgb(39, 39, 39);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.prod:hover {
+  transition:1s;
+  background-color:rgb(180, 177, 158);
 }
 
 .prod-img {

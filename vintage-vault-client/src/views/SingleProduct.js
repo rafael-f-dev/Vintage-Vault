@@ -38,7 +38,6 @@ const SingleProduct = (props) => {
         const newProduct0 = {...product};
         newProduct0.quantity = 1;
         setProduct(newProduct0);
-        alert(`${product.name} added to cart!`)
     };
 
 
@@ -53,8 +52,7 @@ const SingleProduct = (props) => {
         newProduct2.quantity -= 1;
         setProduct(newProduct2);
     }
-
-
+    
         return (
             <div className='prod'>
                 <img className='prod-img' src={product.image} alt='product' />

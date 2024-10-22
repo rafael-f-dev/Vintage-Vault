@@ -60,13 +60,15 @@ const Cart = (props) => {
   )
 
     return (<div>
+             <h1>Shopping Cart</h1>
              {props.cart.length === 0 ? 
-             <h2>Cart is empty!</h2>
+             <h2>You have nothing in your shopping cart.</h2>
              :
              <div>
              <ul>{renderCart()}</ul>
              <h2 className='total-price'>Subtotal: {totalCart}</h2>
              </div>}
+             
             </div>
     )
 };

@@ -49,7 +49,7 @@ const Register = (props) => {
 
               <label>Confirm Password</label>
               <input type='password' name='password2' placeholder='Confirm password'/>
-              <button>Register</button>
+              <button className='form-button'>Register</button>
 
               <h4 className='message'>{message}</h4>
            </form>
