@@ -15,6 +15,7 @@ const Cart = (props) => {
                                     <p className='prod-name' >{prod.name}</p>
                                     <p className='prod-price' >{prod.price}€</p>
                                     <p className='prod-desc' >{prod.description}</p>
+                                    <p classname='prod-qty'>{prod.quantity}</p>
                                     </div>
                                     <button onClick={() => removeFromCart(prod._id)}>X</button>
                                </li>)

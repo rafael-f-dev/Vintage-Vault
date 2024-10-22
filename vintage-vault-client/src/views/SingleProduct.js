@@ -34,7 +34,26 @@ const SingleProduct = (props) => {
             props.setCart(newCart);
             localStorage.setItem('cart', JSON.stringify(newCart));
         }
+
+        const newProduct0 = {...product};
+        newProduct0.quantity = 1;
+        setProduct(newProduct0);
+        alert(`${product.name} added to cart!`)
     };
+
+
+    const increment = () => {
+        const newProduct = {...product};
+        newProduct.quantity += 1;
+        setProduct(newProduct);
+    }
+
+    const decrement = () => {
+        const newProduct2 = {...product};
+        newProduct2.quantity -= 1;
+        setProduct(newProduct2);
+    }
+
 
         return (
             <div className='prod'>
@@ -43,6 +62,9 @@ const SingleProduct = (props) => {
                     <h1 className='prod-name'>{product.name}</h1>
                     <p className='prod-price'>{product.price}€</p>
                     <p className='prod-desc'>{product.description}</p>
+                    <button onClick={increment}>+</button>
+                    <p classname='prod-qty'>{product.quantity}</p>
+                    <button onClick={decrement}>-</button>
                 </div>
                 <button onClick={addToCart}>Add to cart</button>
             </div>
