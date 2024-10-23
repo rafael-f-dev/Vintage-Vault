@@ -21,10 +21,11 @@ const Login = (props) => {
               email: form.email,
               password: form.password
            })
+           console.log(res.data)
            setMessage(res.data.data);
            if (res.data.ok) {
             setTimeout(() => {
-               props.login(res.data.token);
+               props.login(res.data.token,res.data.userId);
             },1500)
            }
         } catch (err){

@@ -42,7 +42,7 @@ class User {
          const match = await argon2.verify(user.password, password);
          if (match) {
             const token = jwt.sign(user.toJSON(), jwt_secret, { expiresIn: "1h" })
-            res.send({ok:true, data: "Welcome back", token, email });
+            res.send({ok:true, data: "Welcome back", token, userId: user._id, email });
          } else return res.send({ ok:false, data:"Invalid credentials"});
       }
       catch (err) {
@@ -58,6 +58,60 @@ class User {
          : res.send({ok:true, succ});
       });
    }
+
+   async delete (req, res) {
+      let { email, password} = req.body;
+
+      if (!email || !password) {
+         return res.send({ ok: false, data: "Email and password are required." });
+      }
+
+      try{
+          const user = await Users.findOne({email});
+
+          if (!user) {
+            return res.send({ ok: false, data: "User not found." });
+          }
+
+          const match = await argon2.verify(user.password, password);
+          if (!match) {
+            return res.send({ ok: false, data: "Invalid credentials." });
+          }
+
+          await Users.deleteOne({ email });
+          res.send({ ok: true, data: "User removed successfully." });
+      }
+      catch(err){
+          res.send({err});
+      }
+  }
+
+  async update (req, res) {
+    let { updateData } = req.body;
+    const userId = req.params.userId;
+    try{
+      const updatedUser = await Users.findByIdAndUpdate(userId, updateData, {
+         new: true, 
+         runValidators: true
+      });
+      if (!updatedUser) {
+      return res.status(404).send({ ok: false, data: "User not found" });
+      }
+      res.send({ ok: true, data: "User details updated successfully"});
+    } catch (err) {
+      res.send({err});
+    }
+  }
+
+   async getUser (req,res) {
+     try {
+      const user = await Users.findById(req.params.id);
+      if (!user) return res.send({ok: false, data: "User not found"});
+      res.send(user);
+     } catch (err){
+      res.send({err});
+     }
+   };
 
 }
 

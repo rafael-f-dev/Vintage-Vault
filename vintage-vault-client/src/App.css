@@ -115,7 +115,7 @@ button {
 button:hover {
  transition: 1s;
  color: white;
- background: rgb(39, 39, 39);
+ background-color: rgb(39, 39, 39);
 }
 
 .splash-screen-button {
@@ -153,7 +153,7 @@ button:hover {
   color: black;
   display: flex;
   flex-direction: column;
-  text-align: left;
+  text-align: center;
   font-weight: 500;
   text-indent: 1em;
   align-items: center;
@@ -164,9 +164,35 @@ button:hover {
   margin: 2em;
 }
 
+.edit-button { 
+  margin: 2em;
+}
+
 .profile input {
    width: 20vw;
    padding: 0.5em;
+}
+
+.profile input:disabled {
+  background-color: rgb(228, 226, 212);
+  color: black;
+}
+
+.delete-account-button {
+  color: white;
+  background-color: #914746;
+  font-size: 1em;
+  margin: 1em;
+  border: 3px solid #914746;
+  border-radius: 8px;
+  padding: 0.5em;
+}
+
+.delete-account-button:hover {
+ transition: 1s;
+ color: black;
+ border: 3px solid #FFDE8E;
+ background-color: #FFDE8E;
 }
 
 .prod-grid {

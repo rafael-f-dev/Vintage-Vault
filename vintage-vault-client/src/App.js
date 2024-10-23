@@ -21,6 +21,7 @@ function App() {
   const [cartCount, setCartCount] = useState(0);
 
   const token = JSON.parse(localStorage.getItem("token"));
+  const userId = localStorage.getItem("userId"); 
 
   useEffect(() => {
     const verify_token = async () => {
@@ -28,7 +29,7 @@ function App() {
       try {
          axios.defaults.headers.common["Authorization"] = token;
          const res = await axios.post(`${URL}/users/verify_token`)
-         return res.data.ok ? login(token) : logout()
+         return res.data.ok ? login(token, userId) : logout()
       } catch(err) {
         console.log(err)
       }
@@ -42,13 +43,15 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  const login = (token) => {
+  const login = (token, userId) => {
     token && localStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem("userId", userId); 
     setIsLoggedIn(true);
   }
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
     setIsLoggedIn(false);
   }
 
@@ -57,13 +60,13 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar cartCount={cartCount}/>
+        <Navbar userId={userId} cartCount={cartCount}/>
         <Routes>
           <Route path ="/" element={<Home/>}/>
           <Route path ="/products" element={<Products/>}/>
           <Route path ="/login" element={isLoggedIn ? <Navigate to="/"/> : <Login login={login} />}/>
           <Route path ="/register" element={isLoggedIn ? <Navigate to="/"/> : <Register login={login} />}/>
-          <Route path ="/profile" element={isLoggedIn ? <Profile logout={logout} /> : <Navigate to="/"/>}/>
+          <Route path ="/profile/:userId" element={isLoggedIn ? <Profile userId={userId} logout={logout} /> : <Navigate to="/"/>}/>
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>}/>
           <Route path="/id/:id" element={<SingleProduct cart={cart} setCart={setCart}/>}/>
         </Routes>
