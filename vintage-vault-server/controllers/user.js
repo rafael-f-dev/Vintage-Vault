@@ -57,7 +57,6 @@ class User {
          res.send({ok:false, data:"Something went wrong"})
          : res.send({ok:true, succ});
       });
-
    }
 
 }

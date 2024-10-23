@@ -21,21 +21,22 @@ const Products = () => {
       getProds();
     }, []);
 
+
      let renderProds = () => (
-        products.map((prod,idx)=> <li className='prod' key={idx}>
-                                        <NavLink to={`/id/${prod._id}`} ><img className='prod-img' src={prod.image} alt='product'></img></NavLink>
+        products.map((prod,idx)=> <NavLink to={`/id/${prod._id}`} className='prod' key={idx}>
+                                        <img className='prod-img' src={prod.image} alt='product'></img>
                                         <div className='prod-text-wrapper'>
                                         <p className='prod-name' >{prod.name}</p>
                                         <p className='prod-price' >{prod.price}€</p>
                                         <p className='prod-desc' >{prod.description}</p>
                                         </div>
-                                   </li>)
+                                   </NavLink>)
       )
 
     return (<div>
-               <ul className='prod-grid'>
+               <div className='prod-grid'>
                {renderProds()}
-               </ul>
+               </div>
            </div>
     )
 };
