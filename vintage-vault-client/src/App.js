@@ -10,6 +10,7 @@ import SingleProduct from './views/SingleProduct.js';
 import axios from 'axios';
 import { URL } from './config.js';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import './fonts/CroissantOne-Regular.ttf';
 import './App.css';
 
 function App() {
