@@ -15,9 +15,10 @@
     "cors": "^2.8.5",
     "dotenv": "*",
     "express": "^4.21.1",
+    "googleapis": "^144.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.7.1",
-    "nodemailer": "*",
+    "nodemailer": "^6.9.15",
     "validator": "^13.12.0"
   }
 }
