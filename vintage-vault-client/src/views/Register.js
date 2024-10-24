@@ -25,6 +25,11 @@ const Register = (props) => {
            })
            setMessage(res.data.data);
            if (res.data.ok) {
+            try {
+               await axios.post(`${URL}/email/register`, { email: form.email })
+            } catch (err) {
+                 console.log(err)
+            }
             setTimeout(() => {
                props.login();
             },1500)
@@ -32,6 +37,7 @@ const Register = (props) => {
         } catch (err){
            console.log(err)
         }
+
     }
 
     useEffect(() => {

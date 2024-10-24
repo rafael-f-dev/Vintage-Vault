@@ -6,7 +6,7 @@ const OAuth2 = google.auth.OAuth2
 class Email {
 
     async register(req,res) {
-        const CreateTransporter = async () => {
+        const createTransporter = async () => {
             try {
                 const oauth2Client = new OAuth2(
                     process.env.CLIENT_ID,
@@ -42,17 +42,17 @@ class Email {
             }
         }
 
-        const{ email } = req.body
+        const { email } = req.body
 
         const mailOptions = {
-            from:process.env.ADMIN_EMAIL,
-            to: process.env.USER_EMAIL,
+            from: process.env.USER_EMAIL,
+            to: email,
             subject: 'Vintage Vault',
             html: `<h1>Welcome to Vintage Vault! Thank you for creating your account.</h1>`
         }
     
         let emailTransporter = await createTransporter()
-        await emailTransporter.sendEmail(mailOptions, (err,info)=> {
+        await emailTransporter.sendMail(mailOptions, (err,info)=> {
             if (err) {
                 console.log(err)
                 res.send("Failed to send email")

@@ -3,7 +3,7 @@ const express = require('express'),
   controller  = require('../controllers/email.js');
 
 
-router.post('register', controller.register)
+router.post('/register', controller.register)
 
 
 module.exports = router
