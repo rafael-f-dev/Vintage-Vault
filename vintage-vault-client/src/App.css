@@ -240,3 +240,63 @@ button:hover {
   text-align: center;
   margin-left: 0.5em;
 }
+
+.cart {
+  color: black;
+}
+
+.cart h1 {
+  padding-top: 1em;
+}
+
+.cart-grid {
+  display: block;
+  padding: 10px; 
+  height: 100vh;
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+
+.cart-prod {
+  align-items: center;
+  display: flex;
+  margin: 2em;
+  border-bottom: 1px solid rgb(82, 80, 80);
+  text-align: center;
+}
+
+.cart-prod-text-wrapper {
+  text-align: left;
+  display: inline-block;
+  margin: 4em;
+  font-size: 1.3em;
+}
+
+.cart-prod-name {
+  text-align: left;
+  font-weight: 700;
+  padding-bottom: 1em;
+}
+
+.cart-prod-qty-wrapper {
+  display: inline-flex;
+  margin: 2em;
+  text-align: center;
+  font-size: 1.3em;
+  gap: 2em;
+}
+
+.cart-prod-button {
+  margin: 0;
+}
+
+.cart-prod-price {
+  margin: 5em;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.total-price {
+  text-align: right;
+  margin: 2em;
+}

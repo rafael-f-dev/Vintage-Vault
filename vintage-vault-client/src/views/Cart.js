@@ -8,65 +8,61 @@ const Cart = (props) => {
     const updatedCart = props.cart.filter(prod => prod._id !== productId);
     props.setCart(updatedCart);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
+    calcTotal(updatedCart);
   }
 
   useEffect(()=>{
-     totalPrice();
-  },[totalCart,props.cart])
+     calcTotal(props.cart);
+  },[props.cart])
 
   const increment = (idx) => {
     const newCart = [...props.cart];
     newCart[idx].quantity += 1;
     props.setCart(newCart);
-    calcTotal()
+    calcTotal(newCart);
   }
 
   const decrement = (idx) => {
     const newCart = [...props.cart];
+    if (newCart[idx].quantity > 1) {
     newCart[idx].quantity -= 1;
+    }
     props.setCart(newCart);
-    calcTotal()
-  }
- 
-  const calcTotal = () => {
-    const newCart2 = props.cart.map(prod => ({
-      ...prod,
-      price: prod.price * prod.quantity
-    }));
-    props.setCart(newCart2);
+    calcTotal(newCart)
   }
 
-  const totalPrice = () => {
-    var total = 0;
-    props.cart.forEach(prod => {
-      total += prod.price;
-    });
+  const calcTotal = (cart) => {
+    const total = cart.reduce((acc, prod) => {
+      return acc + (prod.price * prod.quantity);
+    }, 0);
     setTotalCart(total);
   }
 
   let renderCart = () => (
-    props.cart.map((prod,idx)=> <li className='prod' key={idx}>
+    props.cart.map((prod,idx)=> <li className='cart-prod' key={prod._id}>
                                     <img className='prod-img' src={prod.image} alt='product'></img>
-                                    <div className='prod-text-wrapper'>
-                                    <p className='prod-name' >{prod.name}</p>
-                                    <p className='prod-price' >{prod.price}€</p>
+                                    <div className='cart-prod-text-wrapper'>
+                                    <p className='cart-prod-name' >{prod.name}</p>
                                     <p className='prod-desc' >{prod.description}</p>
-                                    <button onClick={()=> increment(idx)}>+</button>
-                                    <p classname='prod-qty'>{prod.quantity}</p>
-                                    <button onClick={()=> decrement(idx)}>-</button>
                                     </div>
+                                    <div className='cart-prod-qty-wrapper'>
+                                    <button className='cart-prod-button' onClick={()=> increment(idx)}>+</button>
+                                    <p classname='prod-qty'>{prod.quantity}</p>
+                                    <button className='cart-prod-button' onClick={()=> decrement(idx)}>-</button>
+                                    </div>
+                                    <p className='cart-prod-price' >{(prod.price * prod.quantity).toFixed(2)}€</p>
                                     <button onClick={() => removeFromCart(prod._id)}>X</button>
                                </li>)
   )
 
-    return (<div>
+    return (<div className='cart'>
              <h1>Shopping Cart</h1>
              {props.cart.length === 0 ? 
              <h2>You have nothing in your shopping cart.</h2>
              :
              <div>
-             <ul>{renderCart()}</ul>
-             <h2 className='total-price'>Subtotal: {totalCart}</h2>
+             <ul className='cart-grid'>{renderCart()}</ul>
+             <h2 className='total-price'>Subtotal: {totalCart.toFixed(2)}€</h2>
              </div>}
              
             </div>
