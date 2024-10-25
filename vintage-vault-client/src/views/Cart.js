@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { URL } from '../config.js';
+import axios from 'axios';
+import { useStripe } from '@stripe/react-stripe-js';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = (props) => {
 
   const [totalCart,setTotalCart] = useState(0);
+  const stripe = useStripe();
+  const navigate = useNavigate();
+  
  
   const removeFromCart = (productId) => {
     const updatedCart = props.cart.filter(prod => prod._id !== productId);
@@ -38,6 +45,28 @@ const Cart = (props) => {
     setTotalCart(total);
   }
 
+  const createCheckoutSession = async () => {
+    try{
+       const res = await axios.post(`${URL}/payment/create-checkout-session`, { cart: props.cart })
+       console.log('Response from server:', res.data);
+       if (res.data.ok) {
+        localStorage.setItem("sessionId", JSON.stringify(res.data.sessionId));
+        redirect(res.data.sessionId);
+       } else {
+        navigate("/payment/error");
+       }
+    } catch (err) {
+      console.log(err)
+      navigate("/payment/error");
+    }
+  }
+
+  const redirect = (sessionId) => {
+    stripe.redirectToCheckout({sessionId})
+     .then((result) => console.log(result));
+     
+  }
+
   let renderCart = () => (
     props.cart.map((prod,idx)=> <li className='cart-prod' key={prod._id}>
                                     <img className='prod-img' src={prod.image} alt='product'></img>
@@ -64,7 +93,7 @@ const Cart = (props) => {
              <ul className='cart-grid'>{renderCart()}</ul>
              <h2 className='total-price'>Subtotal: {totalCart.toFixed(2)}€</h2>
              </div>}
-             
+             <button onClick={()=> createCheckoutSession()}>Checkout</button>
             </div>
     )
 };
