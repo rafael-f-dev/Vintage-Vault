@@ -3,7 +3,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 class Payment {
 
    async create_checkout_session(req,res) {
-    const domain = "http://localhost:4040";
+    const domain = "http://localhost:3000";
     const { cart } = req.body;
     
     try {
@@ -28,7 +28,7 @@ class Payment {
                payment_method_types: ['card'],
                line_items,
                mode: 'payment',
-               success_url: `${domain}/payment/success?sessionId={CHECKOUT_SESSION_ID}`,
+               success_url: `${domain}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
                cancel_url: `${domain}/payment/error`,
            });
        return res.send({ok: true, sessionId: session.id})

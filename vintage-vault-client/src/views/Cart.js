@@ -51,7 +51,7 @@ const Cart = (props) => {
        console.log('Response from server:', res.data);
        if (res.data.ok) {
         localStorage.setItem("sessionId", JSON.stringify(res.data.sessionId));
-        redirect(res.data.sessionId);
+        await redirect(res.data.sessionId);
        } else {
         navigate("/payment/error");
        }
@@ -64,7 +64,6 @@ const Cart = (props) => {
   const redirect = (sessionId) => {
     stripe.redirectToCheckout({sessionId})
      .then((result) => console.log(result));
-     
   }
 
   let renderCart = () => (
