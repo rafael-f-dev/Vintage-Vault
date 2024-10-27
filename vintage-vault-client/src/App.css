@@ -140,10 +140,10 @@ body {
 .form-button {
   text-decoration: none;
   color: white;
-  background-color: rgb(94, 18, 18);
+  background-color: #803635;
   font-size: 1em;
   margin: 1em;
-  border: 3px solid rgb(39, 39, 39);
+  border: 3px solid #803635;
   border-radius: 8px;
   padding: 0.5em;
 }
@@ -152,7 +152,8 @@ body {
 .form-button:hover {
   transition: 1s;
   color: black;
-  background: rgb(197, 193, 170);
+  border: 3px solid #FFDE8E;
+  background: #FFDE8E;
  }
  
 
@@ -228,10 +229,10 @@ button:hover {
 
 .delete-account-button {
   color: white;
-  background-color: #914746;
+  background-color: #803635;
   font-size: 1em;
   margin: 1em;
-  border: 3px solid #914746;
+  border: 3px solid #803635;
   border-radius: 8px;
   padding: 0.5em;
 }
@@ -353,8 +354,8 @@ button:hover {
 .checkout-button{
   margin: 4em;
   font-size: 1.3em;
-  background-color: #914746;
-  border: 3px solid #914746;
+  background-color: #803635;
+  border: 3px solid #803635;
   color: white;
 }
 
