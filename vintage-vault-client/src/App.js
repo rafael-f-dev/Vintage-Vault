@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js';
 import Home from './views/Home.js';
 import Products from './views/Products.js';
 import Login from './views/Login.js';
@@ -80,6 +81,7 @@ function App() {
           <Route path="/payment/error" element={<PaymentError/>}/>
         </Routes>
         </Elements>
+        <Footer/>
       </Router>
     </div>
   );

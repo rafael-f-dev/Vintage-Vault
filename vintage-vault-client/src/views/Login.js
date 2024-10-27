@@ -40,7 +40,7 @@ const Login = (props) => {
     },[message])
 
     return (
-    <div>
+    <div className='form'>
     <form onChange={handleChange} onSubmit={handleSubmit} className='form-container'>
               <label>Email</label>
               <input type='email' name='email' placeholder='Your email'/>

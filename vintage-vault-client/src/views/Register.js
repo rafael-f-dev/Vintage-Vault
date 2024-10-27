@@ -46,7 +46,8 @@ const Register = (props) => {
         }, 1500)
     },[message])
 
-    return (<form onChange={handleChange} onSubmit={handleSubmit} className='form-container'>
+    return (<div className='form'>
+            <form onChange={handleChange} onSubmit={handleSubmit} className='form-container'>
               <label>Email</label>
               <input type='email' name='email' placeholder='Your email'/>
 
@@ -59,6 +60,7 @@ const Register = (props) => {
 
               <h4 className='message'>{message}</h4>
            </form>
+           </div>
     )
 }
 
