@@ -82,9 +82,8 @@ body {
 
 .menu {
   display: none;
-  position: absolute;
-  top: 1.8em;
-  right: 1em;
+  margin-top: 1.8em;
+  margin-right: 1em;
   flex-direction: column;
   justify-content: space-between;
   width: 2.25em;
