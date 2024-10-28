@@ -283,6 +283,7 @@ button:hover {
 
 .prod {
   margin: 2em;
+  padding: 2em;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
@@ -311,9 +312,14 @@ button:hover {
 }
 
 .prod-name {
-  font-weight: bold;
+  font-weight: 400;
   text-align: center;
   margin-left: 0.5em;
+}
+
+.prod-price {
+  font-weight: 500;
+  color: #397978;
 }
 
 .cart {
@@ -323,6 +329,11 @@ button:hover {
 
 .cart h1 {
   padding-top: 1em;
+  font-weight: 300;
+}
+
+.cart h2 {
+  font-weight: 200;
 }
 
 .cart-grid {
@@ -336,6 +347,7 @@ button:hover {
 .cart-prod {
   align-items: center;
   display: flex;
+  padding: 2em;
   margin: 2em;
   border-bottom: 1px solid rgb(82, 80, 80);
   text-align: center;
@@ -350,7 +362,7 @@ button:hover {
 
 .cart-prod-name {
   text-align: left;
-  font-weight: 700;
+  font-weight: 400;
   padding-bottom: 1em;
 }
 
@@ -369,7 +381,8 @@ button:hover {
 .cart-prod-price {
   margin: 5em;
   font-size: 1.5em;
-  font-weight: 700;
+  font-weight: 500;
+  color:#397978;
 }
 
 .total-price {
