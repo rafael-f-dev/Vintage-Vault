@@ -17,7 +17,11 @@ const PaymentSuccess = () => {
         getSessionData();
     },[]);
 
-    return(<div>Payment success!</div>)
+    return(<div className='message-box-success'>
+        <h1>✓</h1>
+        <h2>Your payment was successful</h2>
+        <p>Thank you for your payment. We will be in contact with more details shortly</p>
+    </div>)
 }
 
 export default PaymentSuccess;

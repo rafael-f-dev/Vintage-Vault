@@ -422,9 +422,49 @@ button:hover {
   background-color: #FFDE8E;
 }
 
+.message-box-failure {
+    box-shadow: 0 15px 25px #00000019;
+    background: #c93636;
+    padding: 45px;
+    width: 30%;
+    text-align: center;
+    margin: 40px auto;
+    margin-top: 7em;
+    margin-bottom: 7em;
+}
+
+.message-box-success {
+  box-shadow: 0 15px 25px #00000019;
+  background: #41aa33;
+  padding: 45px;
+  width: 30%;
+  text-align: center;
+  margin: 40px auto;
+  margin-top: 7em;
+  margin-bottom: 7em;
+}
+
+.message-box h1 {
+  font-size: 3em;
+}
+
+.message-box h2 {
+    margin-bottom: 12px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+.message-box p {
+    margin-bottom: 0px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .footer {
   width: 100%;
-  height: 40vh;
+  height: 50vh;
   background-color: #293d3d;
 }
 
