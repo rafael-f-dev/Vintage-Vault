@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 		image: {type: String, required: true },
 		category: { type: String, required: true },
 		quantity: { type: Number, required: true },
+		onstock: {type: String, required: true},
 	});
 
 module.exports = mongoose.model('product', productSchema)

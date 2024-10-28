@@ -8,7 +8,10 @@ const Profile = (props) => {
     firstname:"",
     lastname:"",
     phonenumber:0,
-    address:"",
+    city:"",
+    postalcode:0,
+    billingaddress:"",
+    deliveryaddress:"",
     _id: "",
    })
 
@@ -52,7 +55,10 @@ const Profile = (props) => {
               firstname: form.firstname,
               lastname: form.lastname,
               phonenumber: form.phonenumber,
-              address: form.address,
+              city: form.city,
+              postalcode: form.postalcode,
+              billingaddress: form.billingaddress,
+              deliveryaddress: form.deliveryaddress,
               }
            });
            if (response.data.ok) {
@@ -88,8 +94,14 @@ const Profile = (props) => {
                 <input disabled={!isEdit} value={form.lastname} placeholder='Your last name' maxLength={35} name='lastname'/>
                 <p>Phone Number</p>
                 <input disabled={!isEdit} value={form.phonenumber} placeholder='Your phone number' type='tel' name='phonenumber'/>
-                <p>Address</p>
-                <input disabled={!isEdit} value={form.address} placeholder='Your address' name='address'/>
+                <p>City</p>
+                <input disabled={!isEdit} value={form.city} placeholder='Your city' name='city'/>
+                <p>Postal Code</p>
+                <input disabled={!isEdit} value={form.postalcode} placeholder='Your postal code' name='postalcode'/>
+                <p>Billing Address</p>
+                <input disabled={!isEdit} value={form.billingaddress} placeholder='Your billing address' name='billingaddress'/>
+                <p>Delivery Address</p>
+                <input disabled={!isEdit} value={form.deliveryaddress} placeholder='Your delivery address' name='deliveryaddress'/>
               </form>
               <button onClick={() => props.logout()}>Log out</button>
               <button className='delete-account-button'>Delete Account</button>

@@ -14,9 +14,9 @@ class Product {
     }
 
    async insert (req, res) {
-        let { name, price, description, image, category, quantity } = req.body;
+        let { name, price, description, image, category, quantity, onstock } = req.body;
         try{
-            await Products.create({name, price, description, image, category, quantity});
+            await Products.create({name, price, description, image, category, quantity, onstock});
             res.send({ok:true, data: `${name} added successfully.`});
         }
         catch(err){
@@ -35,13 +35,13 @@ class Product {
         }
     }
 
-    async updateName (req, res){
-        let { oldproduct, newproduct } = req.body;
+    async updateStock (req, res){
+        let { product, newstock } = req.body;
         try{
             await Products.updateOne(
-                { oldproduct },{ name:newproduct }
+                { product },{ onstock:newstock }
              );
-            res.send({ok:true, data:`Product ${oldproduct} updated to ${newproduct} successfully`});
+            res.send({ok:true, data:`Product ${product} stock updated to ${newstock} successfully`});
         }
         catch(err){
             res.send({err});
