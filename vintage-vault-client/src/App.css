@@ -349,7 +349,8 @@ button:hover {
   display: flex;
   padding: 2em;
   margin: 2em;
-  border-bottom: 1px solid rgb(82, 80, 80);
+  border-radius: 30px;
+  background-color:rgb(180, 177, 158);
   text-align: center;
 }
 
@@ -385,13 +386,22 @@ button:hover {
   color:#397978;
 }
 
+.total-checkout-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 7em;
+  margin-top: 7em;
+  margin-right: 4em;
+}
+
 .total-price {
   text-align: right;
-  margin: 2em;
+  margin: 2em 0;
 }
 
 .checkout-button{
-  margin: 4em;
+  margin-top: 2em;
   font-size: 1.3em;
   background-color: #803635;
   border: 3px solid #803635;
@@ -436,7 +446,7 @@ button:hover {
   margin-bottom: 0;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
 
   .cart-grid{
     margin-top: 2em;
@@ -466,8 +476,13 @@ button:hover {
     margin: 2em;
   }
 
+  .total-checkout-wrapper {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+  }
+
   .total-price {
-    margin-top: 3em;
+    margin-top: 1em;
   }
 
   .checkout-button {
