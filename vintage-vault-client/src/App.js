@@ -73,7 +73,7 @@ function App() {
           <Route path ="/products" element={<Products/>}/>
           <Route path ="/login" element={isLoggedIn ? <Navigate to="/"/> : <Login login={login} />}/>
           <Route path ="/register" element={isLoggedIn ? <Navigate to="/"/> : <Register login={login} />}/>
-          <Route path ="/profile/:userId" element={isLoggedIn ? <Profile userId={userId} logout={logout} /> : <Navigate to="/"/>}/>
+          <Route path ="/profile" element={isLoggedIn ? <Profile userId={userId} logout={logout} /> : <Navigate to="/"/>}/>
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart}/>}/>
           <Route path="/payment" element={<Cart />}/>
           <Route path="/id/:id" element={<SingleProduct cart={cart} setCart={setCart}/>}/>

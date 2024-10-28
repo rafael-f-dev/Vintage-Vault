@@ -18,7 +18,8 @@ const Profile = (props) => {
     if (userId) {
         getUser(userId);
      } else {
-        alert("User ID not found");
+        localStorage.getItem('userId');
+        getUser(userId);
      }
    }, [userId]);
 
