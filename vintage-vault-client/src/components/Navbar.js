@@ -27,6 +27,7 @@ const Navbar = (props) => {
                 <span></span>
                 <span></span>
             </div>
+            <div className={menuOpen ? 'close-menu-open' : 'close-menu'} onClick={() => setMenuOpen(!menuOpen)}>X</div>
             <div className={menuOpen ? "nav-links-open" : "nav-links"}>
             <NavLink to={"/products"} onClick={() => setMenuOpen(false)} className={({ isActive }) => (isActive ? 'active' : 'default')} >Products</NavLink>
             <NavLink to={"/login"} onClick={() => setMenuOpen(false)} className={({ isActive }) => (isActive ? 'active' : 'default')} >Login</NavLink>
