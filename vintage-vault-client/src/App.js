@@ -11,6 +11,7 @@ import Profile from './views/Profile.js';
 import Cart from './views/Cart.js';
 import PaymentSuccess from './views/PaymentSuccess.js';
 import PaymentError from './views/PaymentError.js';
+import DeleteAcc from './views/DeleteAcc.js';
 import SingleProduct from './views/SingleProduct.js';
 import axios from 'axios';
 import { URL } from './config.js';
@@ -79,6 +80,7 @@ function App() {
           <Route path="/id/:id" element={<SingleProduct cart={cart} setCart={setCart}/>}/>
           <Route path="/payment/success" element={<PaymentSuccess/>}/>
           <Route path="/payment/error" element={<PaymentError/>}/>
+          <Route path="/deleteaccount" element={isLoggedIn ? <DeleteAcc logout={logout} /> : <Navigate to="/"/>}/>
         </Routes>
         </Elements>
         <Footer/>

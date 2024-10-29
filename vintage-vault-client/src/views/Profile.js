@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { URL } from '../config.js';
 import axios from 'axios';
 
@@ -104,7 +105,7 @@ const Profile = (props) => {
                 <input disabled={!isEdit} value={form.deliveryaddress} placeholder='Your delivery address' name='deliveryaddress'/>
               </form>
               <button onClick={() => props.logout()}>Log out</button>
-              <button className='delete-account-button'>Delete Account</button>
+              <NavLink to={'/deleteaccount'} className='delete-account-button'>Delete Account</NavLink>
            </div>
     )
 }

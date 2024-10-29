@@ -265,6 +265,8 @@ button:hover {
   border-radius: 8px;
   padding: 0.5em;
   margin-bottom: 5em;
+  text-decoration: none;
+  text-indent: 0;
 }
 
 .delete-account-button:hover {
