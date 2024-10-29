@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import Navbar from './components/Navbar.js';
@@ -15,7 +17,6 @@ import DeleteAcc from './views/DeleteAcc.js';
 import SingleProduct from './views/SingleProduct.js';
 import axios from 'axios';
 import { URL } from './config.js';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './fonts/CroissantOne-Regular.ttf';
 import './App.css';
 
@@ -65,7 +66,16 @@ function App() {
 
 
   return (
+    <HelmetProvider>
     <div className="App">
+      <Helmet>
+            <title>Vintage Vault</title>
+            <meta charSet="utf-8" />
+            <meta name="description" content="Shop our curated collection of vintage items" />
+            <meta name="keywords" content="vintage products, antique shop, retro items, vintage clothing, collectibles" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+
       <Router>
         <Navbar userId={userId} cartCount={cartCount}/>
         <Elements stripe={stripeProvider}>
@@ -86,6 +96,7 @@ function App() {
         <Footer/>
       </Router>
     </div>
+    </HelmetProvider>
   );
 }
 
