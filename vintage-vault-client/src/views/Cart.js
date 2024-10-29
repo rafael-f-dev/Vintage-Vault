@@ -91,7 +91,7 @@ const Cart = (props) => {
              <div>
              <ul className='cart-grid'>{renderCart()}</ul>
              <div className='total-checkout-wrapper'>
-             <h2 className='total-price'>Subtotal: {totalCart.toFixed(2)}€</h2>
+             <h3 className='total-price'>Subtotal: {totalCart.toFixed(2)}€</h3>
              <button className='checkout-button' onClick={()=> createCheckoutSession()}>Checkout</button>
              </div>
              </div>}
