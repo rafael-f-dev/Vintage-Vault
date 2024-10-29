@@ -13,6 +13,16 @@ class Product {
        }
     }
 
+    async findCategories(req,res) {
+        try{
+            const categories = await Products.distinct('category');
+            res.send(categories);
+        }
+        catch(err){
+            res.send({err})
+        }
+     }
+
    async insert (req, res) {
         let { name, price, description, image, category, quantity, onstock } = req.body;
         try{
@@ -49,10 +59,10 @@ class Product {
     }
 
     async findCategory (req, res) {
-        let { category } = req.body;
+        let { category } = req.query;
         try {
-            const product = await Products.find({ category: category })
-            res.send({ok:true, data: product})
+            const product = await Products.find({ category })
+            res.send(product)
         }
         catch(error){
             res.send({ok:false, data: `Category ${category} does not exist`});

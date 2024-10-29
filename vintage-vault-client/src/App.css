@@ -274,6 +274,25 @@ button:hover {
  background-color: #FFDE8E;
 }
 
+.filter-form {
+  margin-top: 1em;
+  color: black;
+}
+
+.filter-form select{
+  border: 0;
+  padding: 0.5em;
+  margin: 1em;
+  color: white;
+  background-color: #397978;
+}
+
+.filter-form select:hover {
+  color: black;
+  background-color: #FFDE8E;
+  transition: 1s;
+}
+
 .prod-grid {
   display: grid;
   border-top: 1px solid rgb(153, 151, 137);

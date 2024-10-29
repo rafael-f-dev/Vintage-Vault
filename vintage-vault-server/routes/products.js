@@ -5,9 +5,11 @@ const express = require('express'),
 
 router.get('/', controller.findAll);
 
-router.get('/:category', controller.findCategory)
+router.get('/categories', controller.findCategories);
 
-router.get('/id/:id', controller.findID)
+router.get('/categoryId', controller.findCategory);
+
+router.get('/id/:id', controller.findID);
 
 router.post('/add', controller.insert);
 
