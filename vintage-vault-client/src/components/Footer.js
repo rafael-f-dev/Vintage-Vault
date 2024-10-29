@@ -17,8 +17,9 @@ const Footer = () => {
                 </li>
                 <li className='footer-item'>
                     <p className='footer-title'>Contact Us</p>
-                    <p>Street Name 123</p>
-                    <p>33112, US</p>
+                    <p>123 Maple Avenue</p>
+                    <p>Hartford, CT 06103</p>
+                    <p>United States</p>
                     <p>hello@vintagevault.com</p>
                     <p className='copyright' >Vintage Vault © 2024</p>
                 </li>

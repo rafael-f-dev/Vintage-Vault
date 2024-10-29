@@ -5,6 +5,8 @@ import { URL } from '../config.js';
 
 const DeleteAcc = (props) => {
 
+    const logout = props.logout;
+
     const [form, setForm] = useState({
         email:"",
         password:"",
@@ -15,9 +17,9 @@ const DeleteAcc = (props) => {
     useEffect(()=>{
         if (deleted) {
             alert("Account deleted");
-            props.logout();
+            logout();
         }
-    },[deleted])
+    },[deleted,logout])
     
 
     const handleSubmit = async (e) => {

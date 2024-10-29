@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import {URL} from '../config.js';
 
 const PaymentSuccess = () => {
+
+    const [redirect, setRedirect] = useState(false);
+
     useEffect(()=>{
         const getSessionData = async () => {
             try {
@@ -15,7 +19,18 @@ const PaymentSuccess = () => {
             }
         };
         getSessionData();
+
+
+        const timer = setTimeout(() => {
+            setRedirect(true);
+        }, 2000);
+   
+        return () => clearTimeout(timer);
     },[]);
+
+    if (redirect) {
+        return <Navigate to={'/'}/>;
+       }    
 
     return(<div className='message-box-success'>
         <h1>✓</h1>
