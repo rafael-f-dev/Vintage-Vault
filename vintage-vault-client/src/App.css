@@ -332,7 +332,6 @@ button:hover {
   max-width: 100%;
   max-height: 200px;
   margin: 2em auto 1em;
-  border: 2px solid #397978;
 }
 
 .prod-text-wrapper {
@@ -350,6 +349,11 @@ button:hover {
 .prod-price {
   font-weight: 500;
   color: #397978;
+}
+
+.out-of-stock {
+  color: #c93636;
+  font-weight: 400;
 }
 
 .cart {

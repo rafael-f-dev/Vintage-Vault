@@ -89,7 +89,7 @@ const Products = () => {
     return (<div>
                <div>
                 <form onChange={handleChange} className='filter-form'>
-                    <label for='categories' >Filter</label>
+                    <label htmlFor='categories' >Filter</label>
                     <select name='categories'>
                     <option value='All'>All</option>
                     {renderCats()}

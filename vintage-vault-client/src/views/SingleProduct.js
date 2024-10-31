@@ -60,12 +60,18 @@ const SingleProduct = (props) => {
                     <h1 className='prod-name'>{product.name}</h1>
                     <p className='prod-price'>{product.price}€</p>
                     <p className='prod-desc'>{product.description}</p>
+                    {product.onstock === "True" ?
+                    <div>
                     <button onClick={increment}>+</button>
                     <p className='prod-qty'>{product.quantity}</p>
                     <button onClick={decrement}>-</button>
+                    </div>
+                     : <p className='out-of-stock' >This item is out of stock</p>}
                 </div>
+                {product.onstock === "True" ?
                 <button onClick={addToCart}>Add to cart</button>
-            </div>
+                 : null }
+                </div>
         );
     };
 

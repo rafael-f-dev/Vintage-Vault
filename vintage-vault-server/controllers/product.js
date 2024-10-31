@@ -9,6 +9,7 @@ class Product {
            res.send(products);
        }
        catch(err){
+           console.log(err);
            res.send({err})
        }
     }
@@ -19,6 +20,7 @@ class Product {
             res.send(categories);
         }
         catch(err){
+            console.log(err);
             res.send({err})
         }
      }
@@ -30,6 +32,7 @@ class Product {
             res.send({ok:true, data: `${name} added successfully.`});
         }
         catch(err){
+            console.log(err);
             res.send({err});
         }
     }
@@ -41,6 +44,7 @@ class Product {
             res.send({ok:true, data: `${product} removed successfully.`});
         }
         catch(err){
+            console.log(err);
             res.send({err});
         }
     }
@@ -54,6 +58,21 @@ class Product {
             res.send({ok:true, data:`Product ${product} stock updated to ${newstock} successfully`});
         }
         catch(err){
+            console.log(err);
+            res.send({err});
+        };
+    }
+
+    async updateImage (req, res){
+        let { id, newimage } = req.body;
+        try{
+            await Products.updateOne(
+                { _id:id },{ image:newimage }
+             );
+            res.send({ok:true, data:`Product ${id} image updated to ${newimage} successfully`});
+        }
+        catch(err){
+            console.log(err);
             res.send({err});
         };
     }

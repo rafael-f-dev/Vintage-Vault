@@ -17,4 +17,6 @@ router.post('/delete', controller.delete);
 
 router.post('/update', controller.updateStock);
 
+router.post('/image', controller.updateImage);
+
 module.exports = router
