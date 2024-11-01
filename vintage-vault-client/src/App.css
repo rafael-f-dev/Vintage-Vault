@@ -82,7 +82,7 @@ body {
 
 .menu {
   display: none;
-  margin-top: 1.8em;
+  margin-top: 2em;
   margin-right: 1em;
   margin-left: 1em;
   flex-direction: column;
@@ -579,7 +579,7 @@ button:hover {
     cursor: pointer;
     position: relative;
     right: 3px;
-    top: 5px;
+    top: 6px;
     margin-left: 2em;
   }
 
@@ -622,7 +622,7 @@ button:hover {
 @media (max-width: 650px) {
 
   .menu {
-    top: 15px;
+    top: 20px;
   }
 
   .navbar {
@@ -650,7 +650,7 @@ button:hover {
 @media (max-width: 300px) {
 
   .menu {
-    top: 25px;
+    top: 30px;
   }
 
   .navbar {

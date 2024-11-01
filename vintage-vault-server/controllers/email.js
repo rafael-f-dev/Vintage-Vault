@@ -52,13 +52,13 @@ class Email {
         }
     
         let emailTransporter = await createTransporter()
-        await emailTransporter.sendMail(mailOptions, (err,info)=> {
+        emailTransporter.sendMail(mailOptions, (err, info) => {
             if (err) {
-                console.log(err)
-                res.send("Failed to send email")
+                console.log(err);
+                res.send("Failed to send email");
             } else {
-                console.log("Email sent", info.response)
-                res.send("Email sent successfully")
+                console.log("Email sent", info.response);
+                res.send("Email sent successfully");
             }
         })
     }
