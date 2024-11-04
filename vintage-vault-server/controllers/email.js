@@ -55,7 +55,7 @@ class Email {
         emailTransporter.sendMail(mailOptions, (err, info) => {
             if (err) {
                 console.log(err);
-                res.send("Failed to send email");
+                res.send("Failed to send email"); 
             } else {
                 console.log("Email sent", info.response);
                 res.send("Email sent successfully");

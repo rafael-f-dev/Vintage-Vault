@@ -31,8 +31,8 @@ const Register = (props) => {
                  console.log(err)
             }
             setTimeout(() => {
-               props.login();
-            },1500)
+               props.login(res.data.token,res.data.userId);
+            },1200)
            }
         } catch (err){
            console.log(err)
