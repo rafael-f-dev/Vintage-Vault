@@ -22,8 +22,9 @@ class User {
             email,
             password: hash,
          }
-         await Users.create(newUser);
-         res.send({ok:true, data:"Registered successfully"});
+         const userCreated = await Users.create(newUser);
+         const token = jwt.sign(userCreated.toJSON(), jwt_secret, { expiresIn: "1h" })
+         res.send({ok:true, data:"Registered successfully", token, userId: userCreated._id});
       }
       catch (err) {
         res.send({ok:false, data:"Something went wrong", err});
