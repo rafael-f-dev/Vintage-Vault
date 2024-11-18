@@ -44,7 +44,7 @@ function App() {
       }
     };
     verify_token();
-  });
+  },[token]);
 
 
   useEffect(() => {
