@@ -1,0 +1,18 @@
+{
+    "name": "vintage-vault",
+    "version": "1.0.0",
+    "description": "Shop our curated collection of vintage items",
+    "main": "./vintage-vault-server/index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "cd ./vintage-vault-server && node index.js"
+    },
+    "engines": {
+      "node": "16.x"
+    },
+    "keywords": [],
+    "author": "rafael-f-dev",
+    "license": "ISC",
+    "dependencies": {
+    }
+  }
