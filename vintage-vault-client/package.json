@@ -1,7 +1,7 @@
 {
   "name": "vintage-vault-client",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@stripe/react-stripe-js": "^2.8.1",
     "@stripe/stripe-js": "^4.9.0",
