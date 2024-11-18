@@ -14,5 +14,17 @@
     "author": "rafael-f-dev",
     "license": "ISC",
     "dependencies": {
+      "argon2": "^0.41.1",
+      "bcrypt": "*",
+      "body-parser": "^1.20.3",
+      "cors": "^2.8.5",
+      "dotenv": "*",
+      "express": "^4.21.1",
+      "googleapis": "^144.0.0",
+      "jsonwebtoken": "^9.0.2",
+      "mongoose": "^8.7.1",
+      "nodemailer": "^6.9.15",
+      "stripe": "^17.2.1",
+      "validator": "^13.12.0"
     }
   }
