@@ -9,10 +9,10 @@ app.use(require('cors')())
 app.use(require("express").urlencoded({extended: true}))
 app.use(require("express").json())
 
-app.use(express.static(path.join(__dirname, 'vintage-vault-client/build')));
+app.use(express.static(path.join(__dirname, 'vintage-vault-client', 'build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'vintage-vault-client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'vintage-vault-client', 'build', 'index.html'));
 });
 
 async function connectingToDB  () {
