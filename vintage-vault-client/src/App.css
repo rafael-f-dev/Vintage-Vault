@@ -579,7 +579,6 @@ button:hover {
     cursor: pointer;
     position: relative;
     right: 3px;
-    top: 6px;
     margin-left: 2em;
   }
 
@@ -622,7 +621,7 @@ button:hover {
 @media (max-width: 650px) {
 
   .menu {
-    top: 20px;
+    top: 15px;
   }
 
   .navbar {
@@ -630,7 +629,7 @@ button:hover {
   }
 
   .active-logo {
-    font-size: 1.3em;
+    font-size: 1.9em;
   }
 
   .default-logo{
