@@ -3,7 +3,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
 class Payment {
 
    async create_checkout_session(req,res) {
-    const domain = "https://vintage-vault-p8dc.onrender.com/";
+    const domain = "https://vintage-vault-p8dc.onrender.com";
     const { cart } = req.body;
     
     try {
