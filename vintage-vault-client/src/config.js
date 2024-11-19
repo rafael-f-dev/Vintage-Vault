@@ -1,3 +1,3 @@
-const URL = "https://vintage-vault-p8dc.onrender.com";
+const URL = "0.0.0.0:10000";
 
 export { URL };

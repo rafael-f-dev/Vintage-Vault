@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { URL } from '../config.js';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const SingleProduct = (props) => {
+
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
     const [product, setProduct] = useState([])
 
@@ -11,7 +12,7 @@ const SingleProduct = (props) => {
 
    useEffect(() => {
         const getProd = () => {
-            axios.get(`${URL}/products/id/${id}`) 
+            axios.get(`${apiBaseUrl}/products/id/${id}`) 
                 .then((res) => {
                     setProduct(res.data);
                 })

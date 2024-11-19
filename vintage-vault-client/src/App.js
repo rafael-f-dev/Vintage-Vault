@@ -16,13 +16,14 @@ import PaymentError from './views/PaymentError.js';
 import DeleteAcc from './views/DeleteAcc.js';
 import SingleProduct from './views/SingleProduct.js';
 import axios from 'axios';
-import { URL } from './config.js';
 import './fonts/CroissantOne-Regular.ttf';
 import './App.css';
 
 const stripeProvider = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 function App() {
+
+  const apiVerifyTokenUrl = process.env.REACT_APP_API_VERIFY_TOKEN_ROUTE;
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -37,7 +38,7 @@ function App() {
       if (token === null) setIsLoggedIn(false);
       try {
          axios.defaults.headers.common["Authorization"] = token;
-         const res = await axios.post(`${URL}/users/verify_token`)
+         const res = await axios.post(`${apiVerifyTokenUrl}`)
          return res.data.ok ? login(token, userId) : logout()
       } catch(err) {
         console.log(err)

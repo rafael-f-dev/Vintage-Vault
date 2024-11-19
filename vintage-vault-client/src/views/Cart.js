@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { URL } from '../config.js';
 import axios from 'axios';
 import { useStripe } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 
 const Cart = (props) => {
+
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const [totalCart,setTotalCart] = useState(0);
   const stripe = useStripe();
@@ -47,7 +48,7 @@ const Cart = (props) => {
 
   const createCheckoutSession = async () => {
     try{
-       const res = await axios.post(`${URL}/payment/create-checkout-session`, { cart: props.cart })
+       const res = await axios.post(`${apiBaseUrl}/payment/create-checkout-session`, { cart: props.cart })
        console.log('Response from server:', res.data);
        if (res.data.ok) {
         localStorage.setItem("sessionId", JSON.stringify(res.data.sessionId));

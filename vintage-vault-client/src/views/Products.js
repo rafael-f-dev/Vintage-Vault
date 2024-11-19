@@ -5,6 +5,8 @@ import axios from 'axios';
 
 const Products = () => {
 
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [categoryId, setCategoryId] = useState("All");
@@ -12,7 +14,7 @@ const Products = () => {
 
     useEffect(() => {
       const getProds = () => {
-          axios.get(`${URL}/products/`)
+          axios.get(`${apiBaseUrl}/products/`)
               .then((res) => {
                   setProducts(res.data);
               })
@@ -22,7 +24,7 @@ const Products = () => {
       };
 
       const getCategories = () => {
-        axios.get(`${URL}/products/categories`)
+        axios.get(`${apiBaseUrl}/products/categories`)
            .then((res) => {
                setCategories(res.data);
            })
@@ -42,7 +44,7 @@ const Products = () => {
     },[categoryId])
 
     const getFiltered = (categoryId) => {
-          axios.get(`${URL}/products/categoryId`, {
+          axios.get(`${apiBaseUrl}/products/categoryId`, {
             params: { category: categoryId }
         })
           .then((res) => {

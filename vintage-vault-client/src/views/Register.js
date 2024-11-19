@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { URL } from '../config.js';
 
 const Register = (props) => {
+
+   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
     const [message, setMessage] = useState("");
     const [form, setForm] = useState({
@@ -18,7 +19,7 @@ const Register = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-           const res = await axios.post(`${URL}/users/register`, {
+           const res = await axios.post(`${apiBaseUrl}/users/register`, {
               email: form.email,
               password: form.password,
               password2: form.password2
@@ -26,7 +27,7 @@ const Register = (props) => {
            setMessage(res.data.data);
            if (res.data.ok) {
             try {
-               await axios.post(`${URL}/email/register`, { email: form.email })
+               await axios.post(`${apiBaseUrl}/email/register`, { email: form.email })
             } catch (err) {
                  console.log(err)
             }

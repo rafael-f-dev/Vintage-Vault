@@ -5,6 +5,8 @@ import { URL } from '../config.js';
 
 const DeleteAcc = (props) => {
 
+    const apiDeleteUrl = process.env.REACT_APP_API_DELETE_ROUTE;
+
     const logout = props.logout;
 
     const [form, setForm] = useState({
@@ -25,7 +27,7 @@ const DeleteAcc = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`${URL}/users/delete`, {
+            const res = await axios.post(`${apiDeleteUrl}`, {
                 email: form.email,
                 password: form.password
             })

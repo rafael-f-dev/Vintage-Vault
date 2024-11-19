@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
-import {URL} from '../config.js';
 
 const PaymentSuccess = () => {
+
+    const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
     const [redirect, setRedirect] = useState(false);
 
@@ -11,7 +12,7 @@ const PaymentSuccess = () => {
         const getSessionData = async () => {
             try {
                 const sessionId = JSON.parse(localStorage.getItem("sessionId"));
-                const response = await axios.get(`${URL}/payment/checkout-session?sessionId=${sessionId}`);
+                const response = await axios.get(`${apiBaseUrl}/payment/checkout-session?sessionId=${sessionId}`);
                 localStorage.removeItem("sessionId");
                 console.log("response:", response);
             } catch (err) {

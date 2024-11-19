@@ -1,9 +1,12 @@
 import React, { useState , useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
-import { URL } from '../config.js';
+
 
 const Login = (props) => {
+
+    const apiLoginUrl = process.env.REACT_APP_API_LOGIN_ROUTE;
+
     const [message, setMessage] = useState("");
     const [form, setForm] = useState({
         email:"",
@@ -13,11 +16,11 @@ const Login = (props) => {
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
     } 
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-           const res = await axios.post(`${URL}/users/login`, {
+           const res = await axios.post(`${apiLoginUrl}`, {
               email: form.email,
               password: form.password
            })

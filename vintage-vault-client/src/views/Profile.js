@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { URL } from '../config.js';
 import axios from 'axios';
 
 const Profile = (props) => {
+
+   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+
    const userId = props.userId
    const [form, setForm] = useState({
     firstname:"",
@@ -33,7 +35,7 @@ const Profile = (props) => {
 
    const getUser = async (userId) => {
     try{
-        const response = await axios.get(`${URL}/users/get/${userId}`);
+        const response = await axios.get(`${apiBaseUrl}/users/get/${userId}`);
         if(response.data) {
             setForm(response.data);
         } else {
@@ -51,7 +53,7 @@ const Profile = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-           const response = await axios.post(`${URL}/users/update/${userId}`, {
+           const response = await axios.post(`${apiBaseUrl}/users/update/${userId}`, {
             updateData: {
               firstname: form.firstname,
               lastname: form.lastname,
