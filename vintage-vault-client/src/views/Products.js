@@ -14,7 +14,7 @@ const Products = () => {
 
     useEffect(() => {
       const getProds = () => {
-          axios.get(`${apiBaseUrl}/products/`)
+          axios.get(`${apiBaseUrl}/api/products/`)
               .then((res) => {
                   setProducts(res.data);
               })
@@ -24,7 +24,7 @@ const Products = () => {
       };
 
       const getCategories = () => {
-        axios.get(`${apiBaseUrl}/products/categories`)
+        axios.get(`${apiBaseUrl}/api/products/categories`)
            .then((res) => {
                setCategories(res.data);
            })
@@ -44,7 +44,7 @@ const Products = () => {
     },[categoryId])
 
     const getFiltered = (categoryId) => {
-          axios.get(`${apiBaseUrl}/products/categoryId`, {
+          axios.get(`${apiBaseUrl}/api/products/categoryId`, {
             params: { category: categoryId }
         })
           .then((res) => {

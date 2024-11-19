@@ -12,7 +12,7 @@ const SingleProduct = (props) => {
 
    useEffect(() => {
         const getProd = () => {
-            axios.get(`${apiBaseUrl}/products/id/${id}`) 
+            axios.get(`${apiBaseUrl}/api/products/id/${id}`) 
                 .then((res) => {
                     setProduct(res.data);
                 })

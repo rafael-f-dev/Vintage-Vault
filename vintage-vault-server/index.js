@@ -29,7 +29,7 @@ connectingToDB()
 
 
 //==========================================================================
-app.use('/products',require('./routes/products.js'))
+app.use('/api/products',require('./routes/products.js'))
 app.use('/users',require('./routes/users.js'))
 app.use('/email',require('./routes/email.js'))
 app.use('/payment', require('./routes/payment.js'))
