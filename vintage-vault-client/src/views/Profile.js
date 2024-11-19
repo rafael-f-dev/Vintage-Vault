@@ -76,7 +76,7 @@ const Profile = (props) => {
         const buttonContent = e.target.innerHTML;
         if (buttonContent === "Edit") {
            setIsEdit(true);
-        } else if (buttonContent === "Cancel editing") {
+        } else if (buttonContent === "Save editing") {
            setIsEdit(false);
            const userId = localStorage.getItem('userId');
            getUser(userId);
@@ -90,7 +90,7 @@ const Profile = (props) => {
                 <button className='edit-button' onClick={(e)=> {
                     e.stopPropagation();
                     handleEdit(e);
-                }}>{isEdit? "Cancel editing" : "Edit"}</button>
+                }}>{isEdit? "Save editing" : "Edit"}</button>
                 <p>First Name</p>
                 <input disabled={!isEdit} value={form.firstname} placeholder='Your first name' maxLength={35} name='firstname'/>
                 <p>Last Name</p>
