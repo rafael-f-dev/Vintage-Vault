@@ -52,7 +52,8 @@ class Email {
         }
     
         let emailTransporter = await createTransporter()
-        emailTransporter.sendMail(mailOptions, (err, info) => {
+
+        emailTransporter ? emailTransporter.sendMail(mailOptions, (err, info) => {
             if (err) {
                 console.log(err);
                 res.send("Failed to send email"); 
@@ -61,6 +62,8 @@ class Email {
                 res.send("Email sent successfully");
             }
         })
+        :
+        res.send("Failed to send email")
     }
 }
 

@@ -11,10 +11,6 @@ app.use(require("express").json())
 
 app.use(express.static(path.join(__dirname, '..', 'vintage-vault-client', 'build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'vintage-vault-client', 'build', 'index.html'));
-});
-
 async function connectingToDB  () {
   try {
     await require("mongoose").connect(process.env.MONGO, {
@@ -33,5 +29,8 @@ app.use('/api/products',require('./routes/products.js'))
 app.use('/users',require('./routes/users.js'))
 app.use('/email',require('./routes/email.js'))
 app.use('/payment', require('./routes/payment.js'))
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'vintage-vault-client', 'build', 'index.html'));
+});
 //==========================================================================
 app.listen(port, () => console.log("Listening on port: " + port));
