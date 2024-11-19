@@ -30,7 +30,7 @@ const Profile = (props) => {
    }, [userId]);
 
    useEffect(()=>{
-    console.log(form)
+    
    },[form])
 
    const getUser = async (userId) => {
