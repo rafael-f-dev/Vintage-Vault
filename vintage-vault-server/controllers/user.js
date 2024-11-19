@@ -16,7 +16,10 @@ class User {
             return res.send({ok:false, data:"Email invalid"});
       try {
          const user = await Users.findOne({ email });
-         if (user) res.send({ok:false, data:"Invalid credentials"});
+         if (user) {
+            return res.send({ok:false, data:"Invalid credentials"});
+         }
+
          const hash = await argon2.hash(password);
          const newUser = {
             email,
@@ -24,10 +27,10 @@ class User {
          }
          const userCreated = await Users.create(newUser);
          const token = jwt.sign(userCreated.toJSON(), jwt_secret, { expiresIn: "1h" })
-         res.send({ok:true, data:"Registered successfully", token, userId: userCreated._id});
+         return res.send({ok:true, data:"Registered successfully", token, userId: userCreated._id});
       }
       catch (err) {
-        res.send({ok:false, data:"Something went wrong", err});
+        return res.send({ok:false, data:"Something went wrong", err});
       }
    }
 
@@ -47,7 +50,7 @@ class User {
          } else return res.send({ ok:false, data:"Invalid credentials"});
       }
       catch (err) {
-         res.send({ok:false, data:"Something went wrong"}, err);
+         return res.send({ok:false, data:"Something went wrong"}, err);
       }
    }
 
