@@ -13,9 +13,11 @@ class Email {
                     process.env.CLIENT_SECRET,
                     "http://developers.google.com/oauthplayground"
                 )
+
                 oauth2Client.setCredentials({
                     refresh_token: process.env.REFRESH_TOKEN
                 })
+
                 const accessToken = await new Promise((resolve,reject) => {
                    oauth2Client.getAccessToken((err,token) => {
                       if (err) {
@@ -25,6 +27,7 @@ class Email {
                     resolve(token)
                    })
                 })
+
                 const transporter = nodemailer.createTransport({
                     service:"gmail",
                     auth: {
@@ -36,9 +39,12 @@ class Email {
                         refreshToken: process.env.REFRESH_TOKEN
                     }
                 })
-                return transporter
+
+                return transporter;
+
             } catch (err) {
-                console.log(err)
+                console.log("Error in createTransporter:", err);
+                return null;
             }
         }
 
@@ -55,7 +61,7 @@ class Email {
 
         emailTransporter ? emailTransporter.sendMail(mailOptions, (err, info) => {
             if (err) {
-                console.log(err);
+                console.log("Error sending email", err);
                 res.send("Failed to send email"); 
             } else {
                 console.log("Email sent", info.response);
@@ -63,7 +69,7 @@ class Email {
             }
         })
         :
-        res.send("Failed to send email")
+        res.send("Failed to send email");
     }
 }
 
