@@ -646,10 +646,10 @@ button:hover {
 
 }
 
-@media (max-width: 300px) {
+@media (max-width: 360px) {
 
   .menu {
-    top: 30px;
+    top: 5px;
   }
 
   .navbar {
@@ -657,11 +657,11 @@ button:hover {
   }
 
   .active-logo {
-    font-size: 1em;
+    font-size: 1.3em;
   }
 
   .default-logo{
-    font-size: 1em;
+    font-size: 1.3em;
   }
 
   .menu {
@@ -671,6 +671,10 @@ button:hover {
 
   body {
     font-size: 0.5em;
+  }
+
+  .footer {
+    height: 90vh;
   }
 
 }
@@ -687,7 +691,4 @@ button:hover {
     margin-right: 0.7em;
   }
 
-  .footer{
-    height: 60vh;
-  }
 }
