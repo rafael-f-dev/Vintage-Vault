@@ -2,7 +2,7 @@
 ---
 ## Description
 
-This is a MERN**(MongoDB, Express, React.js, Node)** stack e-commerce web application. It includes user registration (with a welcome email), login functionality, and the ability to edit and delete your profile. Users can manage their cart by adding, updating quantities, or removing products. The app also supports making payments using Stripe. On the backend, CRUD operations can be performed on products, allowing for full product management.
+This is a MERN (MongoDB, Express, React.js, Node) stack e-commerce web application. It includes user registration (with a welcome email), login functionality, and the ability to edit and delete your profile. Users can manage their cart by adding, updating quantities, or removing products. The app also supports making payments using Stripe. On the backend, CRUD operations can be performed on products, allowing for full product management.
 
 ---
 ## View Application
